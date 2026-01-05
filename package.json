@@ -1,6 +1,6 @@
 {
-    "name": "soma",
-    "displayName": "Soma",
+    "name": "soma-lang",
+    "displayName": "Soma Language",
     "description": "Soma language support powered by SouLS",
     "version": "0.0.1",
     "engines": {
@@ -18,12 +18,11 @@
         "semantic-tokens"
     ],
     "publisher": "SomaLang",
-    "displayName": "Soma Language",
     "repository": {
         "type": "git",
         "url": "https://github.com/SrGaabriel/vscode-soma"
     },
-    "license": "MIT",
+    "license": "Apache-2.0",
     "activationEvents": [
         "onLanguage:soma"
     ],
