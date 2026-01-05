@@ -1,0 +1,210 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Soma",
+  "scopeName": "source.soma",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#keywords" },
+    { "include": "#operators" },
+    { "include": "#attributes" },
+    { "include": "#types" },
+    { "include": "#functions" },
+    { "include": "#identifiers" },
+    { "include": "#punctuation" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.soma",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.block.soma",
+          "begin": "/\\*",
+          "end": "\\*/",
+          "patterns": [
+            { "include": "#comments" }
+          ]
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.soma",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.soma",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.integer.soma",
+          "match": "\\b\\d+\\b"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.soma",
+          "match": "\\b(if|then|else|compose|bind)\\b"
+        },
+        {
+          "name": "keyword.declaration.soma",
+          "match": "\\b(def|data|trait|instance|intrinsic|struct)\\b"
+        },
+        {
+          "name": "keyword.other.soma",
+          "match": "\\b(let|in|where|with|import|use|export)\\b"
+        },
+        {
+          "name": "constant.language.boolean.soma",
+          "match": "\\b(true|false)\\b"
+        },
+        {
+          "name": "variable.language.wildcard.soma",
+          "match": "\\b_\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.type.soma",
+          "match": "::|->|<-|=>"
+        },
+        {
+          "name": "keyword.operator.lambda.soma",
+          "match": "\\\\"
+        },
+        {
+          "name": "keyword.operator.monadic.soma",
+          "match": ">>=|>>|<\\*>|<\\*|\\*>|<\\|>"
+        },
+        {
+          "name": "keyword.operator.semigroup.soma",
+          "match": "<>"
+        },
+        {
+          "name": "keyword.operator.comparison.soma",
+          "match": "=="
+        },
+        {
+          "name": "keyword.operator.arithmetic.soma",
+          "match": "[+\\-*/%]"
+        },
+        {
+          "name": "keyword.operator.assignment.soma",
+          "match": "="
+        },
+        {
+          "name": "keyword.operator.pipe.soma",
+          "match": "\\|"
+        },
+        {
+          "name": "keyword.operator.colon.soma",
+          "match": ":"
+        },
+        {
+          "name": "keyword.operator.braced.soma",
+          "match": "\\{[+\\-*/%<>|=]+\\}"
+        }
+      ]
+    },
+    "attributes": {
+      "patterns": [
+        {
+          "name": "meta.attribute.soma",
+          "match": "@\\[([a-zA-Z_][a-zA-Z0-9_]*)\\]",
+          "captures": {
+            "0": { "name": "punctuation.definition.attribute.soma" },
+            "1": { "name": "entity.other.attribute-name.soma" }
+          }
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "entity.name.type.soma",
+          "match": "\\b[A-Z][a-zA-Z0-9_']*\\b"
+        }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        {
+          "name": "meta.function.definition.soma",
+          "match": "\\b(def)\\s+([a-z_][a-zA-Z0-9_']*)",
+          "captures": {
+            "1": { "name": "keyword.declaration.soma" },
+            "2": { "name": "entity.name.function.soma" }
+          }
+        },
+        {
+          "name": "meta.function.definition.operator.soma",
+          "match": "\\b(def)\\s+(\\{[^}]+\\})",
+          "captures": {
+            "1": { "name": "keyword.declaration.soma" },
+            "2": { "name": "entity.name.function.operator.soma" }
+          }
+        }
+      ]
+    },
+    "identifiers": {
+      "patterns": [
+        {
+          "name": "variable.other.soma",
+          "match": "\\b[a-z_][a-zA-Z0-9_']*\\b"
+        }
+      ]
+    },
+    "punctuation": {
+      "patterns": [
+        {
+          "name": "punctuation.separator.comma.soma",
+          "match": ","
+        },
+        {
+          "name": "punctuation.accessor.dot.soma",
+          "match": "\\."
+        },
+        {
+          "name": "punctuation.section.parens.begin.soma",
+          "match": "\\("
+        },
+        {
+          "name": "punctuation.section.parens.end.soma",
+          "match": "\\)"
+        },
+        {
+          "name": "punctuation.section.brackets.begin.soma",
+          "match": "\\["
+        },
+        {
+          "name": "punctuation.section.brackets.end.soma",
+          "match": "\\]"
+        },
+        {
+          "name": "punctuation.section.braces.begin.soma",
+          "match": "\\{"
+        },
+        {
+          "name": "punctuation.section.braces.end.soma",
+          "match": "\\}"
+        }
+      ]
+    }
+  }
+}
